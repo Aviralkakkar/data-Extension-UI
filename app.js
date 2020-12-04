@@ -1,10 +1,20 @@
 const express = require("express");
 const app = express();
-let port = process.env.PORT || 3000;
+//let port = process.env.PORT || 3000;
+
 
 const importData = require("./public/index.html");
 
-app.get("/", (req,res) => {
+app.set('port', process.env.PORT || 3000);
+app.use(bodyParser.json({type: 'application/json'})); 
+//app.use(bodyParser.urlencoded({ extended: true }));
+
+//app.use(express.methodOverride());
+//app.use(express.favicon());
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get("./public/index.html", (req,res) => {
     res.send("importData");
 });
 
