@@ -24,7 +24,7 @@ app.post('/PostData', (req, res) => {
     //  res.send(clientId);
     //  res.send(clientSec);
     //  res.send(authUrl);
-  res.end()
+  
 
   var authEndpoint = req.body.authenticationBaseURI 
 
@@ -62,6 +62,7 @@ app.post('/PostData', (req, res) => {
                 })
             })
             res.send(accessToken);
+            res.end()
 });
 
 app.listen(port, () => {
