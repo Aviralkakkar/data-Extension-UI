@@ -74,9 +74,9 @@ app.post('/PostData', (req, res) => {
             res.end()
 });
  
-//app.listen(port, () => {
-//   console.log('Example app is listening on port http://localhost:${port}');
-//});
-http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express server listening on port ' + app.get('port'));
-  });
+app.listen(port, () => {
+   console.log('Example app is listening on port http://localhost:${port}');
+});
+//http.createServer(app).listen(app.get('port'), function(){
+//    console.log('Express server listening on port ' + app.get('port'));
+//  });
