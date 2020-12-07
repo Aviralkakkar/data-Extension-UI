@@ -25,6 +25,63 @@ app.post('/PostData', (req, res) => {
       res.send(clientSec);
       res.send(authUrl);
   res.end()
+
+  var authEndpoint = req.body.authenticationBaseURI 
+
+
+            const data = JSON.stringify({
+                client_id: req.body.clientId, //pass Client ID
+                client_secret: req.body.clientSecret, //pass Client Secret
+                grant_type: "client_credentials"
+            })
+
+            const options = {
+                hostname: authEndpoint,
+                path: '/v2/token',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Content-Length': data.length
+                }
+            }
+            var accessToken = '';
+            var restURL = '';
+            const requestForToken = http.request(options, res => {
+                console.log(`statusCode: ${res.statusCode}`)
+                var jsonString = '';
+                res.on('data', d => {
+                    jsonString += d;
+                    process.stdout.write(d)
+                })
+                res.on('end', function() {
+                    var resData = JSON.parse(jsonString);
+                    accessToken += resData.access_token
+                    restURL += resData.rest_instance_url
+                    console.log(`Access Token : ` + accessToken); 
+                    console.log(`Rest URL Endpoint : ` + restURL);
+                })
+            })
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
 console.log("Yahan bahar bhi access hopaarha hai clientId" + clientId);
 app.listen(port, () => {
