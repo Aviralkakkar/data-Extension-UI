@@ -7,7 +7,7 @@ var errorhandler = require('errorhandler');
 bodyParser = require('body-parser');
 //var path        = require('path');
 //const request = require('request');
-const port = process.env.PORT || 3000 
+const port = process.env.PORT || 8080 
 app.use(bodyParser.json({type: 'application/json'})); 
 
 
