@@ -24,7 +24,7 @@ app.post('/PostData', (req, res) => {
   
 request.post({
   headers: {'content-type' : 'application/json'},
-  url:     req.body.authenticationBaseURI,
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
   body:    {
         'client_id': req.body.clientId, //pass Client ID
         'client_secret': req.body.clientSecret, //pass Client Secret
@@ -33,7 +33,7 @@ request.post({
 },
      json: true
 }, function(error, response, body){
-  console.log("Access"+body.access_token);
+  console.log("Access : "+body.access_token);
      console.log("response"+response);
 });
       
