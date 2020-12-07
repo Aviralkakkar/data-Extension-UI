@@ -8,7 +8,7 @@ var request = require('request');
 
 app.get("*", (req,res) => {
       const ind=path.join(__dirname, 'public', 'index.html');
-    res.sendFile(ind);
+      res.sendFile(ind);
 });
 app.use(express.urlencoded({
   extended: true
@@ -33,11 +33,11 @@ request.post({
 },
      json: true
 }, function(error, response, body){
-      accTok+=body.access_token;
-        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html?accessToken='+accTok);
-  res.sendFile(ind2);
-  console.log("Access"+body.access_token);
-     console.log("response"+response);
+       accTok+=body.access_token;
+       const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
+       res.sendFile(ind2);
+       console.log("Access"+body.access_token);
+       console.log("response"+response);
 });
       
   console.log(clientSec);
