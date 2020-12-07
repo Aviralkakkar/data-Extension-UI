@@ -4,7 +4,7 @@ const path = require('path');
 var http = require('http');
 const fs = require('fs');
 var errorhandler = require('errorhandler');
-var path        = require('path');
+//var path        = require('path');
 const request = require('request');
 const port = process.env.PORT || 3000
 app.use(bodyParser.json({type: 'application/json'})); 
