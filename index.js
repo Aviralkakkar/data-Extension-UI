@@ -61,8 +61,8 @@ app.post('/PostData', (req, res) => {
                 //    console.log(`Rest URL Endpoint : ` + restURL);
                 })
             })
-         //   res.send(accessToken);
-         //   res.end()
+            res.send(accessToken);
+            res.end()
 });
 
 app.listen(port, () => {
