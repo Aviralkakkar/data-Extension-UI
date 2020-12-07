@@ -15,31 +15,34 @@ app.use(express.urlencoded({
 }))
 
 app.post('/PostData', (req, res) => {
+  const clientSec = req.body.clientSecret
+  console.log("clientSecret : "+req.body.clientSecret);
+  console.log("clientId : "+req.body.clientSecret);
+  console.log("authUrl : "+req.body.authenticationBaseURI);
   
-    const clientSec = req.body.clientSecret
-    console.log(req.body.authenticationBaseURI);
-    console.log(req.body.MID);
-    console.log(  req.body.clientId);
-  
-  
+  var accTok='';
+      
 request.post({
-  headers: {'content-type' : 'application/json'},
-  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
-  body:    {
-        'client_id': req.body.clientId, //pass Client ID
-        'client_secret': req.body.clientSecret, //pass Client Secret
-        'grant_type': 'client_credentials',
-           'account_id':req.body.MID
+    headers: {'content-type' : 'application/json'},
+    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+    body:    {
+          'client_id': req.body.clientId, //pass Client ID
+          'client_secret': req.body.clientSecret, //pass Client Secret
+          'grant_type': 'client_credentials',
+             'account_id':req.body.MID
 },
      json: true
 }, function(error, response, body){
-  console.log("Access : "+body.access_token);
+      accTok+=body.access_token;
+        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html?accessToken='+accTok);
+  res.sendFile(ind2);
+  console.log("Access"+body.access_token);
      console.log("response"+response);
 });
       
   console.log(clientSec);
-  res.send(clientSec);     
-  res.end()
+//  res.send(clientSec);   
+
 })
 
 app.listen(port, () => {
