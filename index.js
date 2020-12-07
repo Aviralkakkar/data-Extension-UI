@@ -17,13 +17,16 @@ app.use(express.urlencoded({
 app.post('/PostData', (req, res) => {
   
     const clientSec = req.body.clientSecret
+    console.log(req.body.authenticationBaseURI);
+    console.log(req.body.MID);
+    console.log(  req.body.clientId);
   
   
 request.post({
   headers: {'content-type' : 'application/json'},
   url:     req.body.authenticationBaseURI,
   body:    {
- 'client_id': req.body.clientId, //pass Client ID
+        'client_id': req.body.clientId, //pass Client ID
         'client_secret': req.body.clientSecret, //pass Client Secret
         'grant_type': 'client_credentials',
            'account_id':req.body.MID
