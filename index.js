@@ -2,8 +2,12 @@ const express = require("express");
 const app = express();
 const path = require('path');
 var http = require('http');
-const fs = require('fs')
+const fs = require('fs');
+var errorhandler = require('errorhandler');
+var path        = require('path');
+const request = require('request');
 const port = process.env.PORT || 3000
+app.use(bodyParser.json({type: 'application/json'})); 
 
 
 app.get("*", (req,res) => {
@@ -13,6 +17,10 @@ app.get("*", (req,res) => {
 app.use(express.urlencoded({
   extended: true
 }))
+
+if ('development' == app.get('env')) {
+    app.use(errorhandler());
+  }
 
 app.post('/PostData', (req, res) => {
   const clientId = req.body.clientId
@@ -65,6 +73,9 @@ app.post('/PostData', (req, res) => {
             res.end()
 });
  
-app.listen(port, () => {
-   console.log('Example app is listening on port http://localhost:${port}');
-});
+//app.listen(port, () => {
+//   console.log('Example app is listening on port http://localhost:${port}');
+//});
+http.createServer(app).listen(app.get('port'), function(){
+    console.log('Express server listening on port ' + app.get('port'));
+  });
