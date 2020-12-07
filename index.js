@@ -26,6 +26,7 @@ app.post('/PostData', (req, res) => {
       res.send(authUrl);
   res.end()
 })
+console.log("Yahan bahar bhi access hopaarha hai clientId" + clientId);
 app.listen(port, () => {
    console.log('Example app is listening on port http://localhost:${port}');
 });
