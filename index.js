@@ -53,7 +53,7 @@ app.post('/PostData', (req, res) => {
                 }
             }
             var accessToken = '';
-            var restURL = '';
+            //var restURL = '';
             const requestForToken = http.request(options, res => {
                 console.log(`statusCode: ${res.statusCode}`)
                 var jsonString = '';
