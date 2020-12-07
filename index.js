@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 var http = require('http');
 const fs = require('fs')
-const port = process.env.PORT || 80
+const port = process.env.PORT || 3000
 
 
 app.get("*", (req,res) => {
@@ -64,7 +64,7 @@ app.post('/PostData', (req, res) => {
             res.send(accessToken);
             res.end()
 });
- app.listen(8080, '127.0.0.1');
-//app.listen(port, () => {
-//   console.log('Example app is listening on port http://localhost:${port}');
-//});
+ 
+app.listen(port, () => {
+   console.log('Example app is listening on port http://localhost:${port}');
+});
