@@ -21,9 +21,9 @@ app.post('/PostData', (req, res) => {
   console.log("ClientId is : " +  clientId);
   console.log("ClientSec is : " +  clientSec);
   console.log("AuthURL is : " +  authUrl);
-      res.send(clientId);
-      res.send(clientSec);
-      res.send(authUrl);
+    //  res.send(clientId);
+    //  res.send(clientSec);
+    //  res.send(authUrl);
   res.end()
 
   var authEndpoint = req.body.authenticationBaseURI 
@@ -61,6 +61,7 @@ app.post('/PostData', (req, res) => {
                     console.log(`Rest URL Endpoint : ` + restURL);
                 })
             })
+            res.send(accessToken);
 });
 
 app.listen(port, () => {
