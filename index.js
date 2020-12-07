@@ -15,9 +15,15 @@ app.use(express.urlencoded({
 }))
 
 app.post('/PostData', (req, res) => {
+  const clientId = req.body.clientId
   const clientSec = req.body.clientSecret
-  console.log(clientSec);
+  const authUrl = req.body.authenticationBaseURI
+  console.log("ClientId is : " +  clientId);
+  console.log("ClientSec is : " +  clientSec);
+  console.log("AuthURL is : " +  authUrl);
+      res.send(clientId);
       res.send(clientSec);
+      res.send(authUrl);
   res.end()
 })
 app.listen(port, () => {
