@@ -26,8 +26,8 @@ app.post('/PostData', (req, res) => {
     //  res.send(authUrl);
   
 
-  var authEndpoint = req.body.authenticationBaseURI 
-
+  var authEndpoint = req.body.authenticationBaseURI ;
+  console.log("authEndpoint url is : " +  authUrl);
 
             const data = JSON.stringify({
                 client_id: req.body.clientId, //pass Client ID
@@ -41,7 +41,7 @@ app.post('/PostData', (req, res) => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Content-Length': data.length
+                 //   'Content-Length': data.length
                 }
             }
             var accessToken = '';
@@ -56,13 +56,13 @@ app.post('/PostData', (req, res) => {
                 res.on('end', function() {
                     var resData = JSON.parse(jsonString);
                     accessToken += resData.access_token
-                    restURL += resData.rest_instance_url
+                 //   restURL += resData.rest_instance_url
                     console.log(`Access Token : ` + accessToken); 
-                    console.log(`Rest URL Endpoint : ` + restURL);
+                //    console.log(`Rest URL Endpoint : ` + restURL);
                 })
             })
-            res.send(accessToken);
-            res.end()
+         //   res.send(accessToken);
+         //   res.end()
 });
 
 app.listen(port, () => {
