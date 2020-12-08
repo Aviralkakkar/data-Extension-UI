@@ -55,7 +55,6 @@ request.post({
                       // to be saved to the store 
                       saveUninitialized: true
                     })) 
-                    console.log("secret hai :  " + secret);
 
                     app.get("/", function(req, res){ 
        
@@ -66,7 +65,7 @@ request.post({
 
 
                   app.get("/session", function(req, res){ 
-   
+                    var sec = secret
                     var name = req.session.name 
                     return res.send(name) 
                    
