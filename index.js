@@ -36,7 +36,7 @@ request.post({
 }, function(error, response, body){
        accTok+=body.access_token;
        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
-       res.sendFile(ind2);
+       res.sendFile(ind2(accTok));
        console.log("Access"+body.access_token);
        console.log("response"+response);
 
@@ -83,8 +83,8 @@ request.post({
 
       });
       
-  console.log("yeh account token hai : " + accTok);
-  res.send(accTok);   
+  // console.log("yeh account token hai : " + accTok);
+  // res.send(accTok);   
 
 })
 
