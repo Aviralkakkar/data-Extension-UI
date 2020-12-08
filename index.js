@@ -5,6 +5,7 @@ var http = require('http');
 const fs = require('fs')
 const port = process.env.PORT || 3000
 var request = require('request');
+const session = require('express-session') 
 
 app.get("*", (req,res) => {
       const ind=path.join(__dirname, 'public', 'index.html');
@@ -38,7 +39,67 @@ request.post({
        res.sendFile(ind2);
        console.log("Access"+body.access_token);
        console.log("response"+response);
-});
+
+                          // Session Setup 
+                    app.use(session({ 
+                      
+                      // It holds the secret key for session 
+                      secret: body.access_token, 
+                      
+
+                      // Forces the session to be saved 
+                      // back to the session store 
+                      resave: true, 
+
+                      // Forces a session that is "uninitialized" 
+                      // to be saved to the store 
+                      saveUninitialized: true
+                    })) 
+                    console.log("secret hai :  " + secret);
+
+                    app.get("/", function(req, res){ 
+       
+                      // req.session.key = value 
+                      req.session.name = 'Access Token'
+                      return res.send("Session Set") 
+                  }) 
+
+
+                  app.get("/session", function(req, res){ 
+   
+                    var name = req.session.name 
+                    return res.send(name) 
+                   
+                    /*  To destroy session you can use 
+                        this function  
+                     req.session.destroy(function(error){ 
+                        console.log("Session Destroyed") 
+                    }) 
+                    */
+                }) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+      });
       
   console.log(clientSec);
 //  res.send(clientSec);   
