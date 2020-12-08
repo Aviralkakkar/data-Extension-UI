@@ -64,7 +64,7 @@ request.post({
                   }) 
 
 
-                  app.get("/session", function(req, res){ 
+                    app.get("/session", function(req, res){ 
                     var sec = secret
                     console.log(sec);
                     var name = req.session.name 
@@ -77,23 +77,6 @@ request.post({
                     }) 
                     */
                 }) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-
-
 
 
 
