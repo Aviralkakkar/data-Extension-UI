@@ -64,7 +64,7 @@ request.post({
                   }) 
 
 
-                    app.post("/session", function(req, res){ 
+                    app.get("/session", function(req, res){ 
                     var sec = secret
                     console.log(sec);
                     var name = req.session.name 
@@ -83,8 +83,8 @@ request.post({
 
       });
       
-  console.log(clientSec);
-//  res.send(clientSec);   
+  console.log("yeh account token hai : " + accTok);
+  res.send(accTok);   
 
 })
 
