@@ -1,4 +1,4 @@
-// 'use strict';
+ //'use strict';
 
 
 //exports.login = function( req, res ) {
@@ -15,3 +15,7 @@
 //  }
 //  console.log(data)
 //})
+
+var msg = require('./index.js');
+
+console.log(msg);

@@ -10,7 +10,7 @@ var request = require('request');
 const session = require('express-session') 
 //var jade = require('jade');
 //var http = require("http");
-var routes = require('./routes');
+//var routes = require('./routes');
 
 app.get("*", (req,res) => {
       const ind=path.join(__dirname, 'public', 'index.html');
@@ -44,6 +44,8 @@ request.post({
        res.sendFile(ind2);
        console.log("Access"+body.access_token);
        console.log("response" + response);
+
+       module.exports = accTok ;
 
                       // Session Setup 
          //           app.use(session({ 
@@ -87,8 +89,8 @@ request.post({
 
 
       });
-      app.get('/', routes.activity );
-      app.post('/login', routes.login );
+  //    app.get('/', routes.activity );
+  //    app.post('/login', routes.login );
   // console.log("yeh account token hai : " + accTok);
   // res.send(accTok);   
 
