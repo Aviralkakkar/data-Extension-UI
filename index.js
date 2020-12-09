@@ -44,16 +44,14 @@ request.post({
        console.log("Access"+body.access_token);
        console.log("response" + response);
 
-       if(accTok != null && accTok != undefined )
+       if(accTok == null && accTok == undefined )
        {
-        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
-        res.sendFile(ind2);
+        swal ( "Oops" ,  "Authentication Failed!" ,  "error" )
        }
        else
        {
-         
-        swal ( "Oops" ,  "Authentication Failed!" ,  "error" )
-
+        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
+        res.sendFile(ind2);
        }
 
 
