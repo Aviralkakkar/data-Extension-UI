@@ -6,7 +6,7 @@ const fs = require('fs')
 const port = process.env.PORT || 3000
 var request = require('request');
 const session = require('express-session') 
-var jade = require('jade');
+//var jade = require('jade');
 //var http = require("http");
 var routes = require('./routes');
 
