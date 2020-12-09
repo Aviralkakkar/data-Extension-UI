@@ -44,18 +44,20 @@ request.post({
        console.log("Access"+body.access_token);
        console.log("response" + response);
 
-       if(accTok == null && accTok == "undefined" )
-       {
+       app.post()
+
+    //   if(accTok == null && accTok == "undefined" )
+    //   {
          
-        alert ( "Oops, something went wrong!" )
+    //    alert ( "Oops, something went wrong!" )
 
        // swal ( "Oops" ,  "Authentication Failed!" ,  "error" )
-       }
-       else
-       {
-        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
-        res.sendFile(ind2);
-       }
+    //   }
+    //   else
+    //   {
+      //  const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
+      // res.sendFile(ind2);
+    //   }
 
 
 
@@ -102,8 +104,12 @@ request.post({
                     */
         //        }) 
                   
-        
-
+        app.post('/PostData', (req, res) => {
+          
+          console.log("clientSecret : "+req.body.clientSecret);
+          console.log("clientId : "+req.body.clientSecret);
+          console.log("authUrl : "+req.body.authenticationBaseURI);
+        })
 
       });
   //    app.get('/', routes.activity );
