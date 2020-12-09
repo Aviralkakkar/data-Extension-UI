@@ -44,7 +44,7 @@ request.post({
        console.log("Access"+body.access_token);
        console.log("response" + response);
 
-       if(accTok == null && accTok == undefined )
+       if(accTok == null && accTok == "undefined" )
        {
         swal ( "Oops" ,  "Authentication Failed!" ,  "error" )
        }
