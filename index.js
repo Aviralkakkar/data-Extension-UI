@@ -46,7 +46,10 @@ request.post({
 
        if(accTok == null && accTok == "undefined" )
        {
-        swal ( "Oops" ,  "Authentication Failed!" ,  "error" )
+         
+        alert ( "Oops, something went wrong!" )
+
+       // swal ( "Oops" ,  "Authentication Failed!" ,  "error" )
        }
        else
        {
