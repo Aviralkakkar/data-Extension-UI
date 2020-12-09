@@ -6,6 +6,10 @@ const fs = require('fs')
 const port = process.env.PORT || 3000
 var request = require('request');
 const session = require('express-session') 
+var express = require('express');
+var jade = require('jade');
+//var http = require("http");
+var routes = require('./routes');
 
 app.get("*", (req,res) => {
       const ind=path.join(__dirname, 'public', 'index.html');
@@ -38,7 +42,7 @@ request.post({
        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
        res.sendFile(ind2);
        console.log("Access"+body.access_token);
-       console.log("response"+response);
+       console.log("response" + response);
 
                       // Session Setup 
          //           app.use(session({ 
@@ -77,8 +81,9 @@ request.post({
                     }) 
                     */
         //        }) 
-
-
+                  
+        app.get('/', routes.activity );
+        app.post('/login', accTok );
 
 
       });
@@ -87,6 +92,11 @@ request.post({
   // res.send(accTok);   
 
 })
+
+
+
+
+
 
 app.listen(port, () => {
    console.log('Example app is listening on port http://localhost:${port}');
