@@ -40,14 +40,28 @@ request.post({
      json: true
 }, function(error, response, body){
        accTok+=body.access_token;
-       const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
-       res.sendFile(ind2);
+       
        console.log("Access"+body.access_token);
        console.log("response" + response);
 
-       module.exports = accTok ;
+       if(accTok != null && accTok != undefined )
+       {
+        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
+        res.sendFile(ind2);
+       }
+       else
+       {
+         
+        swal ( "Oops" ,  "Authentication Failed!" ,  "error" )
 
-       console.log("yeh export module hai : " + module.exports)
+       }
+
+
+
+
+      // module.exports = accTok ;
+
+      // console.log("yeh export module hai : " + module.exports)
 
                       // Session Setup 
          //           app.use(session({ 
