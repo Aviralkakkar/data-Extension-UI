@@ -83,8 +83,8 @@ request.post({
                     */
         //        }) 
                   
-        app.get('/', routes.activity );
-        app.post('/login', accTok );
+      //  app.get('/', routes.activity );
+     //   app.post('/login', accTok );
 
 
       });
