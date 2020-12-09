@@ -36,39 +36,39 @@ request.post({
 }, function(error, response, body){
        accTok+=body.access_token;
        const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
-       res.sendFile(ind2(accTok));
+       res.sendFile(ind2);
        console.log("Access"+body.access_token);
        console.log("response"+response);
 
-                          // Session Setup 
-                    app.use(session({ 
+                      // Session Setup 
+         //           app.use(session({ 
                       
                       // It holds the secret key for session 
-                      secret: body.access_token, 
+         //             secret: body.access_token, 
                       
 
                       // Forces the session to be saved 
                       // back to the session store 
-                      resave: true, 
+         //             resave: true, 
 
                       // Forces a session that is "uninitialized" 
                       // to be saved to the store 
-                      saveUninitialized: true
-                    })) 
+         //             saveUninitialized: true
+         //           })) 
 
-                    app.get("/", function(req, res){ 
+         //           app.get("/", function(req, res){ 
        
-                      // req.session.key = value 
-                      req.session.name = 'Access Token'
-                      return res.send("Session Set") 
-                  }) 
+         //             // req.session.key = value 
+         //             req.session.name = 'Access Token'
+         //             return res.send("Session Set") 
+         //         }) 
 
 
-                    app.get("/session", function(req, res){ 
-                    var sec = secret
-                    console.log(sec);
-                    var name = req.session.name 
-                    return res.send(name) 
+         //           app.get("/session", function(req, res){ 
+         //           var sec = secret
+         //           console.log(sec);
+        //            var name = req.session.name 
+         //           return res.send(name) 
                    
                     /*  To destroy session you can use 
                         this function  
@@ -76,7 +76,7 @@ request.post({
                         console.log("Session Destroyed") 
                     }) 
                     */
-                }) 
+        //        }) 
 
 
 
