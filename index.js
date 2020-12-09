@@ -11,7 +11,7 @@ const session = require('express-session')
 //var jade = require('jade');
 //var http = require("http");
 //var routes = require('./routes');
-/*
+
 app.get("*", (req,res) => {
       const ind=path.join(__dirname, 'public', 'index.html');
       res.sendFile(ind);
@@ -90,20 +90,14 @@ request.post({
         
 
 
-//      });
+      });
   //    app.get('/', routes.activity );
   //    app.post('/login', routes.login );
   // console.log("yeh account token hai : " + accTok);
   // res.send(accTok);   
 
-//})
+})
 
-
-
-
-var msg = require('./index.js');
-
-console.log(msg);
 
 app.listen(port, () => {
    console.log('Example app is listening on port http://localhost:${port}');
