@@ -52,15 +52,15 @@ request.post({
 					'Authorization':'Bearer '+body.access_token,
 				},
 				url: 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
-				body:data,
-				json:true
+				body:data
+		//		json:true
 				},function(error2,response2,body2){
 					
 					console.log('\nSOAP Body'+(body2));
 					console.log('\nSOAP Error'+(error2));
 					console.log('\nSOAP Response'+(response2));
 					console.log('\nSOAP Body'+JSON.stringify(body2));
-					console.log('\nSOAP Error'+JSON.stringify(error2));
+					console.log('\nSOAP Error'+JSON.stringify(error2));                             
 					console.log('\nSOAP Response'+JSON.stringify(response2));
 					
 				})
@@ -72,7 +72,7 @@ request.post({
 				console.log(clientSec);
 				//  res.send(clientSec);   
       
-
+                                                                                                                                                                                                                                                                                                                                                 
     //   if(accTok == null && accTok == "undefined" )
     //   {
          
