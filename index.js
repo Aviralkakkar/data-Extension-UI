@@ -48,12 +48,12 @@ request.post({
 				data=JSON.stringify(data);
 				request.post({
 				headers: {
-					'content-type': 'text/xml',
+					'content-type': 'text/xml;charset=UTF-8',
 					'Authorization':'Bearer '+body.access_token,
 				},
 				url: 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
-				body:data
-		//		json:true
+				body:data,
+				json:true
 				},function(error2,response2,body2){
 					
 					console.log('\nSOAP Body'+(body2));
